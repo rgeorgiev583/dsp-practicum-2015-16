@@ -13,18 +13,18 @@
 
     *Вход:*
 
-        minus(sqrt(plus(sin(cos(30), tan(60)), 1)), 2)  
+        minus(sqrt(add(multiply(cos(30), tan(60)), 1)), 2)
 
     *Изход:*
 
         cos(30)
         tan(60)
-        sin(cos(30), tan(60))
+        multiply(cos(30), tan(60))
         1
-        plus(sin(cos(30), tan(60)), 1)
-        sqrt(plus(sin(cos(30), tan(60)), 1))
+        plus(multiply(cos(30), tan(60)), 1)
+        sqrt(add(multiply(cos(30), tan(60)), 1))
         2
-        minus(sqrt(plus(sin(cos(30), tan(60)), 1)), 2)
+        minus(sqrt(add(multiply(cos(30), tan(60)), 1)), 2)
 
 
 2. Напишете програма, която при получен *компресиран* низ на стандартния вход
