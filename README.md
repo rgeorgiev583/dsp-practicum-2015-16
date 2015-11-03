@@ -1,2 +1,1 @@
-# dsp-practicum-2015-16
-Програмите от практикума по СДП на специалност КН, 2 курс, 2 поток, 2015/16 г.
+[https://github.com/rgeorgiev583/dsp-practicum-2015-16/tree/master/8/5](Задачи за днес)
