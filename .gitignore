@@ -29,3 +29,6 @@
 
 # Compiled documentation files to HTML
 *.html
+
+# TODO listing
+TODO
