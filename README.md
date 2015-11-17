@@ -63,14 +63,14 @@ repo-то в GitHub.)
 
 По-нататъшните стъпки са обяснени [по подобаващ начин в help сайта на GitHub](https://help.github.com/articles/using-pull-requests/).
 
-# За повече информация
+## За повече информация
 
-## За Git и GitHub:
+### За Git и GitHub:
 
-[Официалният сайт на Git](https://git-scm.com/)
-[Помощ за GitHub](https://help.github.com/)
+* [Официалният сайт на Git](https://git-scm.com/)
+* [Помощ за GitHub](https://help.github.com/)
 
-## За C++:
+### За C++:
 
-[C++ reference #1](http://www.cplusplus.com/)
-[C++ reference #2](http://en.cppreference.com/)
+* [C++ reference #1](http://www.cplusplus.com/)
+* [C++ reference #2](http://en.cppreference.com/)
