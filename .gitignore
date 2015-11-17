@@ -26,3 +26,6 @@
 *.exe
 *.out
 *.app
+
+# Compiled documentation files to HTML
+*.html
