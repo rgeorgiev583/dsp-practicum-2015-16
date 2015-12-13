@@ -1,4 +1,4 @@
-#include <stddef.h>
+include <stddef.h>
 
 template <typename T>
 class SimpleBinaryTree
