@@ -30,9 +30,7 @@ int main()
         {
             expr.count = atoi(iter);
             char* expressionBeginning = iter;
-
-            while (*iter && *iter >= '0' && *iter <= '9')
-                iter++;
+            while (*iter && isDigit(*iter++));
 
             if (*iter++ == '(')
             {
