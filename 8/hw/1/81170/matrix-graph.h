@@ -21,17 +21,19 @@ class ListsGraph;
 class EdgesGraph;
 
 class MatrixGraph {
-  vector<vector<bool>> adjMatrix;
+  vector<vector<int>> incMatrix;
 
 public:
 
-  MatrixGraph(const vector<vector<bool>>& adjMatrix);
+  MatrixGraph(const vector<vector<int>>& incMatrix);
   MatrixGraph(const ListsGraph& lg);
   MatrixGraph(const EdgesGraph& eg);
 
-  const vector<vector<bool>>& getMatrix() const;
+  const vector<vector<int>>& getMatrix() const;
   size_t vertexCount() const;
+  size_t edgesCount() const;
   bool adjacent(size_t v1, size_t v2) const;
+  bool adjacentFrom(size_t from, size_t to) const;
   bool isPath(const vector<size_t>& vs) const;
 };
 

@@ -4,26 +4,30 @@
 
 #include "lists-graph.h"
 
-ListsGraph::ListsGraph(const vector<list<size_t>>& adjLists) : adjLists(adjLists) {}
+ListsGraph::ListsGraph(size_t vertexCount) : adjLists(vertexCount) {}
+
+ListsGraph::ListsGraph(const vector<list<size_t>>& adjLists) :
+  adjLists(adjLists) {}
 
 ListsGraph::ListsGraph(const MatrixGraph& mg) {
-  size_t len = mg.vertexCount();
-
-  for (size_t i = 0; i < len; ++i) {
-    adjLists.push_back(list<size_t>());
-
-    for (size_t j = 0; j < len; ++j) {
-      if (mg.adjacent(i, j)) {
-        adjLists.back().push_back(j);
+  size_t vertexCount = mg.vertexCount();
+  adjLists = vector<list<size_t>>(vertexCount, list<size_t>());
+  for (size_t j = 0, edgesCount = mg.edgesCount(); j < edgesCount; ++j) {
+    size_t v1;
+    size_t v2;
+    for (size_t i = 0; i < vertexCount; ++i) {
+      if (mg.getMatrix()[i][j] == -1) {
+        v1 = i;
+      } else if (mg.getMatrix()[i][j] == 1) {
+        v2 = i;
       }
     }
+    adjLists[v1].push_back(v2);
   }
 }
 
 ListsGraph::ListsGraph(const EdgesGraph& eg) {
-  size_t len = eg.vertexCount();
-
-  adjLists = vector<list<size_t>>(len, list<size_t>());
+  adjLists = vector<list<size_t>>(eg.vertexCount(), list<size_t>());
   for (auto edge : eg.getEdges()) {
     adjLists[edge.first].push_back(edge.second);
   }
@@ -35,6 +39,22 @@ const vector<list<size_t>>& ListsGraph::getLists() const {
 
 size_t ListsGraph::vertexCount() const {
   return adjLists.size();
+}
+
+size_t ListsGraph::edgesCount() const {
+  size_t sum = 0;
+  for (auto l : adjLists) {
+    sum += l.size();
+  }
+  return sum;
+}
+
+void ListsGraph::addVertex(const list<size_t>& adjList) {
+  adjLists.push_back(adjList);
+}
+
+void ListsGraph::addEdge(size_t from, size_t to) {
+  adjLists[from].push_back(to);
 }
 
 bool ListsGraph::adjacent(size_t v1, size_t v2) const {
