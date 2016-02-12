@@ -25,6 +25,7 @@ int main()
 			cin >> start;
 			cin >> end;
 			graph[ start ].push_back( end );
+			graph[ end ].push_back( start );
 		}
 
 		int startVert = 0;
