@@ -9,7 +9,6 @@ const int LENGTH = 6;
 
 using namespace std;
 
-
 void push_to_queue(int current_node, queue<int> &to_check, unordered_set<int> &current_set,
                    unordered_set<int> &reached, unordered_set<int> &in_queue,unordered_map<int,int> &result){
 
@@ -21,7 +20,6 @@ void push_to_queue(int current_node, queue<int> &to_check, unordered_set<int> &c
         }
     }
 }
-
 
 unordered_map<int,int> collect_lengths(int start, unordered_map<int,unordered_set<int>> &graph){
     unordered_set<int> reached;
@@ -99,7 +97,6 @@ int main(){
                     cout << BFS_table[i] << " ";
             }
         }
-
         cout << endl;
     }
 
