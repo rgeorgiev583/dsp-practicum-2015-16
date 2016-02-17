@@ -1,0 +1,68 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+
+using namespace std;
+
+typedef vector< vector<int> > Graph;
+
+int main()
+{
+	const int edgeWeight = 6;
+	int numTests = 0;
+	cin >> numTests;
+	for( int i = 0; i < numTests; i++ ) // do the tests
+	{
+		int vertices = 0, edges = 0;
+		cin >> vertices;
+		cin >> edges;
+		Graph graph( vertices + 1 );
+		vector<int> dist( vertices + 1 );
+
+		for( int j = 0; j < edges; j++ ) // add edges in graph
+		{
+			int start = 0, end = 0;
+			cin >> start;
+			cin >> end;
+			graph[ start ].push_back( end );
+			graph[ end ].push_back( start );
+		}
+
+		int startVert = 0;
+		cin >> startVert;
+
+		for( int j = 1; j <= vertices; j++ )
+		{
+			dist[j] = -1;
+		}
+
+		dist[ startVert ] = 0;
+		queue<int> q;
+		q.push( startVert );
+		while( !q.empty() )
+		{
+			int current	= q.front();
+			q.pop();
+			size_t numAdj = graph[ current ].size();
+			for( size_t k = 0; k < numAdj; k++ )
+			{
+				if( dist[ graph[ current ][k] ] == -1 )
+				{
+					dist[ graph[ current ][k] ] = dist[ current ] + edgeWeight;
+					q.push( graph[ current ][k] );
+				}
+			}
+		}
+
+		for( int j = 1; j <= vertices; j++ )
+		{
+			if( dist[j] != 0 )
+			{
+				cout << dist[j] << ' ';
+			}
+		}
+		cout << endl;
+	}
+	return 0;
+}
+
