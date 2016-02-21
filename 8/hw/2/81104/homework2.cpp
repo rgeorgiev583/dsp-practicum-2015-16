@@ -27,7 +27,7 @@ int findShortestPath(const Graph &graph, int source, int target) {
             }
         }
     }
-    return INT_MAX;
+    return -1;
 }
 
 int main()
