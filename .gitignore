@@ -35,3 +35,7 @@ TODO
 
 # main source file for C++
 main.cpp
+
+# project files
+.idea
+CMakeLists.txt
