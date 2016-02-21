@@ -1,0 +1,51 @@
+#include<iostream>
+#include<map>
+#include<vector>
+#include<iterator>
+#include<time.h>
+using namespace std;
+
+void countingSort(vector<int> &l)
+{
+	map<int, int> repeats;
+	for (int i = 0; i < l.size(); i++)
+	{
+		int temp = repeats[l[i]] + 1;
+		repeats[l[i]] = temp;
+	}
+	l.clear();
+	for (int i = 1; i < 10000; i++)
+		for (int j = 0; j < repeats[l[i]]; j++)
+			l.push_back(i);
+}
+
+vector<vector<int>> generateTwoLists(vector<int> l)
+{
+	vector<int> listA;
+	vector<int> listB;
+	countingSort(l);
+	for (int i = 0; i < l.size(); i++)
+	{
+		if (i % 2 == 0)
+			listA.push_back(l[i]);
+		else
+			listB.push_back(l[i]);
+	}
+	vector<vector<int>> endlist;
+	endlist.push_back(listA);
+	endlist.push_back(listB);
+	return endlist;
+}
+
+vector<int> generateSortedListFromOthers(vector<vector<int>> lists)
+{
+	vector<int> mergedList;
+	int min;
+	while (!lists[0].empty() || !lists[1].empty())
+	{
+		if (!lists[0].empty())
+		{
+			min = lists[0].
+		}
+	}
+}
