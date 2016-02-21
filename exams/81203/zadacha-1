@@ -1,0 +1,82 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+class Tree{
+private:
+	int value;
+	vector<Tree*> inheritors;
+public:
+	Tree()
+	{
+		value = 0;
+		inheritors.clear();
+	}
+
+	Tree(int _x)
+	{
+		value = _x;
+		inheritors.clear();
+	}
+
+	Tree(int _x, vector<Tree*> _inh)
+	{
+
+		value = _x;
+		inheritors.clear();
+		for (int i = 0; i < _inh.size(); i++)
+			inheritors.push_back(_inh[i]);
+	}
+
+	bool member(Tree* root, int x)
+	{
+		if ((*root).value == x)
+			return true;
+		for (int i = 0; i < (*root).inheritors.size(); i++)
+			if (member((*root).inheritors[i], x) == true)
+				return true;
+		return false;
+	}
+
+	void filterOdd(Tree* root)
+	{
+		if ((*root).value % 2 == 1)
+		{
+			(*root).inheritors.clear();
+			root = NULL;
+			return;
+		}
+		cout << "here:" << (*root).inheritors.size() << endl;
+		if ((*root).inheritors.size() != 0)
+			for (int i = 0; i < (*root).inheritors.size(); i++)
+				filterOdd((*root).inheritors[i]);
+	}
+
+	int getValue(){
+		return value;
+	}
+	Tree getInheritor(int i){
+		if (i >= inheritors.size())
+		{
+			cout << "Error" << endl;
+			return *this;
+		}
+		return (*inheritors[i]);
+	}
+};
+
+int main()
+{
+	Tree test;
+	Tree test2(2);
+	Tree test3(3);
+	vector<Tree*> inh;
+	inh.push_back(&test2);
+	inh.push_back(&test3);
+	Tree testinh(2, inh);
+
+	cout << testinh.member(&testinh, 3) << endl;
+
+	system("pause");
+	return 0;
+}
